@@ -1,0 +1,9 @@
+X-Proxy: gytp-201 30,20201
+Content-Encoding: gzip
+Set-Cookie: jsid=B6D37706B1A3BFB9AAEE2BD03DA259FD; Path=/; HttpOnly
+Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+Vary: Accept-Encoding
+Server: Sahibinden Web Servers
+Date: Wed, 06 Mar 2019 13:10:14 GMT
+X-Frame-Options: SAMEORIGIN
+Content-Type: text/html;charset=UTF-8

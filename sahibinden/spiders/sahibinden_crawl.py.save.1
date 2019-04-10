@@ -1,0 +1,42 @@
+
+# -*- coding: utf-8 -*-
+import scrapy
+
+
+class SahibindenCrawlSpider(scrapy.Spider):
+    name = 'sahibinden-crawl'
+    allowed_domains = ['sahibinden.com']
+    start_urls = ['http://sahibinden.com/otomobil']
+
+    def parse(self, response):
+	yield{
+	
+		}
+	makes = response.xpath('//*[@class="cl2"]/a/text()').extract()
+	makes_url = response.xpath('//*[@class="cl2"]/a/@href').extract()
+	for make in makes_url:
+		yield scrapy.Request(response.urljoin(make))
+
+		if(response.xpath('//*[@class="cl3"]/a').extract()){
+			models = response.xpath('//*[@class="cl3"]/a/text()').extract()
+			models_url = response.xpath('//*[@class="cl3"]/a/@href').extract()
+		}
+
+		for model in models_url:
+			yield scrapy.Request(response.urljoin(model))
+                	
+			if(response.xpath('//*[@class="cl4"]/a').extract()){
+				series = response.xpath('//*[@class="cl4"]/a/text()').extract()
+                		series_url = response.xpath('//*[@class="cl4"]/a/@href').extract()
+			}
+			for serie in series_url
+                       		 yield scrapy.Request(response.urljoin(seri))
+                       		if(response.xpath('//*[@class="cl5"]/a').extract()){ 
+					pockets = response.xpath('//*[@class="cl5"]/a/text()').extract()
+                        	 	pockets_url = response.xpath('//*[@class="cl5"]/a/@href').extract()
+				} 
+				yield {'Make':make,
+				        'Model':model,
+				        'Series':serie
+					'pocket':pockets
+					}

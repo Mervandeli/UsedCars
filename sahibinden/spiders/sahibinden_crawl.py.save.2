@@ -1,0 +1,22 @@
+
+# -*- coding: utf-8 -*-
+import scrapy
+
+
+class SahibindenCrawlSpider(scrapy.Spider):
+    name = 'sahibinden-crawl'
+    allowed_domains = ['sahibinden.com']
+    start_urls = ['https://www.sahibinden.com/otomobil?date=1day&pagingSize=50&sorting=date_desc']
+
+    def parse(self, response):
+        links=list()
+
+        rows = response.xpath('//*[@class="searchResultsTable"]')
+        #print rows
+        for row in rows:
+
+                print row.xpath('')
+
+        next_page_url= response.xpath('//*[@class="pageNaviButtons"]/text()').extract()
+	print next_page_url 
+       # yield scrapy.Request("https://sahibinden.com"+next_page_url)
